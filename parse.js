@@ -1,6 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { marked } from './vendor/marked/marked.esm.js';
 
+marked.use({ gfm: true });
+
 let specMap = new Map();
 try {
   const specData = JSON.parse(readFileSync(new URL('./spec-data.json', import.meta.url), 'utf8'));
